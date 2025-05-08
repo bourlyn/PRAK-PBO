@@ -1,44 +1,41 @@
-// parent class (superclass)
-class Kendaraan {
-    String Merek = "Toyota";
-
-    Kendaraan() {
-        System.out.println("ini konstruktor Parent");
-    }
-
-    void jalan() {
-        System.out.println("kendaraan sedang berjalan");
-    }
- 
+// Latihan NO1
+class Hewan { // parent
+    String suara = "Suara hewan";
 }
 
-// child class (subclass)
-class Mobil extends Kendaraan {
-    String Merek = "BMW";
-
-    public Mobil() {
-        super();
-        System.out.println("ini konstruktor Child");
-    }
-
-    void printInfo(){
-        System.out.println("Merek mobil child " + Merek);
-        System.out.println("Merek mobil parent " + super.Merek);
-        jalan();
-    }
+class Kucing extends Hewan { // child
+    String suara = "Meong";
     
-    void klakson(String Merek) {
-        System.out.println("Mobil " + super.Merek + " sedang klakson ");
+    void dispalySuara() {
+        System.out.println("suara milik kelas Kucing: " + suara);
+        System.out.println("suara milik kelas Hewan: " + super.suara);
+    }
+}
+
+// Latihan NO2
+class Kendaraan {// parent
+    Kendaraan() {
+        System.out.println("Konstruktor Kendaraan dipanggil");
+    }
+}
+
+class Mobil extends Kendaraan {
+    Mobil() { // child
+        super(); 
+        System.out.println("Konstruktor Mobil dipanggil");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Mobil jazz = new Mobil();
-        // jazz.jalan();
-        jazz.printInfo();
-        jazz.klakson(" BMW ");
-        System.out.println(jazz.Merek);
+        // NO1
+        System.out.println("Hasil latihan 1");
+        Kucing kucing = new Kucing();
+        kucing.dispalySuara();
+
+        // NO2
+        System.out.println("\nHasil latihan 2");
+        Mobil mobil = new Mobil();
     }
 }
 
